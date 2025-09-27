@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="weather-au",
-    version="0.0.8",
+    version="0.0.9",
     author="Tony Allan",
     author_email="tony@apms.com.au",
     description="Australian Weather Data (from bom.gov.au)",
