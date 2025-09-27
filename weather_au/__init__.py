@@ -1,7 +1,8 @@
 #
 
 import bs4 # uses lxml
-import urllib.request
+#import urllib.request
+from weather_parsers.weather_parser_common import readUrl
 
 
 # Weather Data Services
@@ -56,9 +57,10 @@ UV_INDEX_URL = 'http://reg.bom.gov.au/fwo/IDY00508.gif'
 # Helper functions
 # https://stackoverflow.com/questions/49639450/scraping-xml-data-with-bs4-lxml
 
-def fetch_xml(url):
+def fetch_xml(url, logger):
     
-    req = urllib.request.Request(url)
-    r = urllib.request.urlopen(req).read()
+    #req = urllib.request.Request(url)
+    #r = urllib.request.urlopen(req).read()
+    r = readUrl(url, logger)
 
     return bs4.BeautifulSoup(r, 'xml')

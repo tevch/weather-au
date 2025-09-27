@@ -6,11 +6,12 @@ from datetime import datetime
 
 class Observations:
 
-    def __init__(self, state=None):
+    def __init__(self, state=None, logger=None):
 
         self.state = state
+        self.logger = logger
         self.url = weather_au.OBSERVATION_PRODUCT_URL[state]
-        self.soup = weather_au.fetch_xml(self.url)
+        self.soup = weather_au.fetch_xml(self.url, self.logger)
         self.identifier = self.soup.identifier.contents[0]
         self.acknowedgment = f'Data courtesy of Bureau of Meteorology ({self.url})'
     
